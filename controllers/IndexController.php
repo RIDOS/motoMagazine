@@ -12,6 +12,9 @@ function testAction(): void
 function indexAction($smarty): void
 {
     $smarty->assign('pageTitle', 'Главная страница сайта');
-
+    $smarty->assign('templateWebPath', TemplateWebPath);
+//    dump($smarty);
+    loadTemplate($smarty, 'header');
     loadTemplate($smarty, 'index');
+    loadTemplate($smarty, 'footer');
 }

@@ -3,6 +3,7 @@
 /**
  * Контроллер загрузки страниц.
  *
+ * @param $smarty
  * @param $controllerName
  * @param string $actionName
  *
@@ -29,6 +30,8 @@ function loadPage($smarty, $controllerName, string $actionName = 'index'): void
  */
 function loadTemplate($smarty, $templateName): void
 {
+    ini_set("display_errors", true);
+//    dump($smarty);
     $smarty->display($templateName . TemplatePostfix);
 }
 
@@ -41,9 +44,11 @@ function loadTemplate($smarty, $templateName): void
  *
  * @return void
  */
-function dump($value, bool $die = true)
+function dump($value = null, bool $die = true)
 {
-    echo 'Debug" <br /><pre></pre>';
+    echo "Debug <br /><pre>";
     var_dump($value);
+    echo "</pre>";
+
     if ($die) die;
 }

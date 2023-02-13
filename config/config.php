@@ -17,7 +17,7 @@ const TemplatePostfix = '.tpl';
  // Пути к файлам шаблонов в вебпространстве
 define('TemplateWebPath', "/templates/$template/");
 
-require('../library/Smarty/libs/Smarty.class.php');
+require('../library/smarty-4.3.0/libs/Smarty.class.php');
 $smarty = new Smarty();
 
 $smarty->setTemplateDir(TemplatePrefix);

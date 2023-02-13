@@ -12,5 +12,5 @@ Enjoy ;D
 ## VERSION CONTROLL
 
 PHP 8.2  
-Smarty 3.1.6
+Smarty 4.3.0
 

@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0;
+    direction: block;
+}
+
+.header {
+    height: 70px;
+    text-align: center;
+}
+
+.left__column {
+    width: 200px;
+    float: left;
+}
+
+.center__column {
+    width: 600px;
+    float: left;
+    padding-left: 90px;
+}
+
+.left__menu {
+    padding-bottom: 20px;
+}
+
+.footer {
+    clear: both;
+}
+
+.menu__caption {
+    padding: 3px;
+    font-weight: bold;
+}
