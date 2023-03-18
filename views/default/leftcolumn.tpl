@@ -1,8 +1,8 @@
 <div class="left__column">
     <div class="left__menu">
         <div class="menu__caption">Меню:</div>
-        пункт1<br>
-        пункт2<br>
-        пункт3<br>
+        {foreach from=$categories item=category}
+            <p>{$category.title}</p>
+        {/foreach}
     </div>
 </div>

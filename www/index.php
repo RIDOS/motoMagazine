@@ -7,6 +7,8 @@
 
 // Подключение настроек.
 include_once '../config/config.php';
+// Инициализация базы данных.
+include_once '../config/db.php';
 // Основные функции.
 include_once '../library/mainFunctions.php';
 
