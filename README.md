@@ -22,4 +22,5 @@ PHP 8.1
 PHP-FPM 8.1  
 Nginx 1.8.0  
 Smarty 4.3.0
+JQuery-3.7.0
 

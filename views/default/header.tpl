@@ -9,6 +9,8 @@
     <title>{$pageTitle}</title>
     <link rel="stylesheet" href="{$templateWebPath}css/main.css" type="text/css">
     <link type="image/x-icon" href="/images/logo/favicon.ico" rel="shortcut icon">
+    <script type="text/javascript" src="/js/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
 </head>
 
 <body>
@@ -33,7 +35,7 @@
             </div>
         </div>
         <div class="header__middle" style="margin-bottom: 20px;">
-            <img src="/images/logo/logo.png" alt="logo">
+            <a href="/"><img src="/images/logo/logo.png" alt="logo"></a>
             <p style="margin-left: 20px; font-size: 20pt;font-family: monospace;">Магазин мототехники!</p>
         </div>
     </header>
@@ -41,3 +43,6 @@
     {include file='leftcolumn.tpl'}
 
 <div class="center__column">
+
+
+</div>

@@ -46,5 +46,65 @@ class ProductsModel
 
         return createSmartyRsArray($result);
     }
+
+    /**
+     * Получить продукцию по данной категории
+     * 
+     * @param int $catId ID категории
+     * @return array массив продукции
+     */
+    public function getProductsByCat(int $catId): array
+    {
+        $sql = "
+            SELECT *
+            FROM products
+            WHERE id_category = '$catId'
+        ";
+
+        $result = $this->db->query($sql);
+
+        return createSmartyRsArray($result);
+    }
+
+    /**
+     * Получение полной информации о продукте по ID
+     * 
+     * @param int $itemId ID продукта
+     * @return array информация о продукте
+     */
+    public function getProductById(int $itemId): array
+    {
+        $sql = "
+            SELECT *
+            FROM products
+            WHERE id = '$itemId'
+        ";
+
+        $result = $this->db->query($sql);
+
+        return mysqli_fetch_assoc($result);
+    }
+
+
+    /**
+     * Получить список продуктов из массива идентификаторов (ID`s)
+     * 
+     * @param array $itemIds массив идентификаторов продуктов
+     * @return array массив продуктов
+     */
+    public function getProductsFromArray(array $itemsIds): array
+    {
+        $strIds = implode(', ', $itemsIds);
+
+        $sql = "
+            SELECT *
+            FROM products
+            WHERE id IN ($strIds)
+        ";
+
+        $result = $this->db->query($sql);
+
+        return createSmartyRsArray($result);
+    }
 }
   

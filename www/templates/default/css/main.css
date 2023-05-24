@@ -27,7 +27,8 @@ body {
 
 .footer {
     clear: both;
-    margin: 5%;
+    margin: 2%;
+    padding-top: 26px;
 }
 
 .header {
@@ -242,19 +243,30 @@ body {
 }
 
 .long-text {
-    margin-bottom: 20px;
     padding: 10px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
+.price-text {
+    padding: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 20px;
+}
+
 .card-submit {
     text-decoration: none;
     padding: 16px;
-    background: blue;
+    background: #248e90;
     color: white;
     margin-top: 70px;
     border-style: initial;
-    border-radius: inherit;
+    border-radius: 6px;
+}
+
+.mt-2 {
+    margin-top: 20px;
 }

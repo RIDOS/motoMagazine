@@ -5,6 +5,14 @@
  * и переводить пользователя на другие страницы.
 */
 
+// Стартуем сессию
+session_start();
+
+// Если в сессии нет массива корзины, то создаем его
+if (!isset($_SESSION['cart'])) {
+  $_SESSION['cart'] = [];
+}
+
 // Подключение настроек.
 include_once '../config/config.php';
 // Инициализация базы данных.
@@ -21,5 +29,6 @@ $actionName = $_GET['action'] ?? 'index';
 
 
 if (isset($smarty)) {
-    loadPage($smarty, $controllerName, $actionName);
+  $smarty->assign('cartCntItems', count($_SESSION['cart']));
+  loadPage($smarty, $controllerName, $actionName);
 }

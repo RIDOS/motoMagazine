@@ -31,7 +31,7 @@ class CategoriesModel
      * @param integer $catId номер категорий
      * @return array подкатегории
      */
-    private function getChildrenForCat(int $catId): array|bool
+    public function getChildrenForCat(int $catId): array|bool
     {
         $sql = "
             SELECT *
@@ -73,5 +73,26 @@ class CategoriesModel
         }
 
         return $cats;
+    }
+
+    /**
+     * Получение данных категории по id
+     * 
+     * @param integer $catId ID категории
+     * @return array массив - строка категории
+     */
+    public function getCatBuId(int $catId): array
+    {
+        $catId = intval($catId);
+
+        $sql = "
+            SELECT *
+            FROM category
+            WHERE id = '$catId'
+        ";
+
+        $rs = $this->db->query($sql);
+
+        return mysqli_fetch_assoc($rs);
     }
 }

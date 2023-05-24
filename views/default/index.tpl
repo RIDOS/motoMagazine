@@ -7,13 +7,12 @@
         {if $item.img}
             <img src="/images/products/{$item.img}" alt="{$item.id}">
         {else}
-            <img src="/images/no-image/default.avif" alt="Product 1">
+            <img src="/images/no-image/default.avif" alt="Нет изображения">
         {/if}
         <h3>{$item.title}</h3>
         <p class="long-text">{$item.about}</p>
-        <a class="card-submit" href="/product/{$item.id}/">ПОДРОБНЕЕ</a>
+        <p class="price-text mt-2">Цена: {$item.price} рублей</p>
+        <a class="card-submit" href="/?controller=product&id={$item.id}">ПОДРОБНЕЕ</a>
     </div>
     {/foreach}
-</div>
-
 </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-05-21 09:18:53
+/* Smarty version 4.3.0, created on 2023-05-24 23:03:34
   from '/var/www/motoMagazine/views/default/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64699bad620bf3_89983883',
+  'unifunc' => 'content_646e51762d22b1_79246192',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9e70248ae236c2dc7d21700eaa4f5a64d249577e' => 
     array (
       0 => '/var/www/motoMagazine/views/default/header.tpl',
-      1 => 1684642711,
+      1 => 1684951403,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:leftcolumn.tpl' => 1,
   ),
 ),false)) {
-function content_64699bad620bf3_89983883 (Smarty_Internal_Template $_smarty_tpl) {
+function content_646e51762d22b1_79246192 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="ru">
 
@@ -35,6 +35,12 @@ function content_64699bad620bf3_89983883 (Smarty_Internal_Template $_smarty_tpl)
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['templateWebPath']->value;?>
 css/main.css" type="text/css">
     <link type="image/x-icon" href="/images/logo/favicon.ico" rel="shortcut icon">
+    <?php echo '<script'; ?>
+ type="text/javascript" src="/js/jquery-3.7.0.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ type="text/javascript" src="/js/main.js"><?php echo '</script'; ?>
+>
 </head>
 
 <body>
@@ -59,7 +65,7 @@ css/main.css" type="text/css">
             </div>
         </div>
         <div class="header__middle" style="margin-bottom: 20px;">
-            <img src="/images/logo/logo.png" alt="logo">
+            <a href="/"><img src="/images/logo/logo.png" alt="logo"></a>
             <p style="margin-left: 20px; font-size: 20pt;font-family: monospace;">Магазин мототехники!</p>
         </div>
     </header>
@@ -67,5 +73,8 @@ css/main.css" type="text/css">
     <?php $_smarty_tpl->_subTemplateRender('file:leftcolumn.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-<div class="center__column"><?php }
+<div class="center__column">
+
+
+</div><?php }
 }
