@@ -11,9 +11,14 @@ This project very simple. And I try to do it where smarty and test yourself and 
 
 Enjoy ;D
 
+# START PROJECT
+```bash
+sudo php -S "127.0.0.1:8085"
+```
+
 ## VERSION CONTROLL
 
-PHP 8.2  
+PHP 8.1  
 PHP-FPM 8.1  
 Nginx 1.8.0  
 Smarty 4.3.0

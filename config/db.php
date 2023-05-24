@@ -4,23 +4,35 @@
  * Инициализация доключения к БД
  */
 
-$dblocation = '127.0.0.1';
-$dbname     = 'db_motomagazine';
-$dbuser     = 'root';
-$dbpassword = 'Password123#@!';
+namespace DataBases;
+use mysqli;
 
-// Соединение с БД.
-$db = new mysqli($dblocation, $dbuser, $dbpassword);
+class connectToDB
+{
+    private string $dblocation = '127.0.0.1';
+    private string $dbname = 'db_motomagazine';
+    private string $dbuser = 'root';
+    private string $dbpassword = 'Password123#@!';
+    public mysqli|false $db;
 
-if (!$db) {
-    echo "Ошибка доступа к MySQL";
-    exit();
-}
+    /**
+     *
+     */
+    function __construct()
+    {
+        // Соединение с БД.
+        if (!$this->db = mysqli_connect($this->dblocation, $this->dbuser, $this->dbpassword))
+        {
+            echo "Ошибка доступа к MySQL";
+            exit();
+        }
 
-// Устанавливаем кодировку по умолчанию для текущего соединения.
-$db->set_charset('utf8');
+        // Устанавливаем кодировку по умолчанию для текущего соединения.
+        $this->db->set_charset('utf8');
 
-if (!$db->select_db($dbname)) {
-    echo "Ошибка доступа к базе данных $dbname";
-    exit();
+        if (!$this->db->select_db($this->dbname)) {
+            echo "Ошибка доступа к базе данных $this->dbname";
+            exit();
+        }
+    }
 }
