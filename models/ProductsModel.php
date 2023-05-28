@@ -34,6 +34,7 @@ class ProductsModel
         $sql = "
             SELECT *
             FROM products
+            WHERE status = 1
             ORDER BY id DESC
         ";
 
@@ -108,6 +109,106 @@ class ProductsModel
             return createSmartyRsArray($result);
         }
         return [];
+    }
+
+    public function getProducts()
+    {
+        $sql = "
+            SELECT *
+            FROM `products`
+            ORDER BY `id_category`
+        ";
+
+        $rs = $this->db->query($sql);
+
+        return createSmartyRsArray($rs);
+    }
+
+    public function instertProduct($itemName, $itemPrice, $itemDesc, $itemCat)
+    {
+        $sql = "
+            INSERT INTO `products`
+                (`title`, `about`, `price`, `id_category`, `img`, `date_create`) 
+            VALUES 
+                ('$itemName','$itemDesc','$itemPrice','$itemCat', 'default.avif', NOW())
+        ";
+
+        $rs = $this->db->query($sql) ?? false;
+
+        return $rs;
+    }
+
+    /**
+     * Обновить описание продукта.
+     * 
+     * @param int $itemId - ID продукта
+     * @param string $itemName - Наименование продукта
+     * @param float $itemPrice - Цета продукта
+     * @param int $itemStatus - Статус продажи продукта
+     * @param string $itemDesc - Описание продукта
+     * @param int $itemCat - ID категории
+     * @param string $newFileName - Фотография продукта
+     * 
+     * @return array Информация о выполненном запросе
+     */
+    public function updateProducts(
+        int $itemId, $itemName, $itemPrice,
+        $itemStatus, $itemDesc, $itemCat,
+        string $newFileName = null
+    )
+    {
+        $set = [];
+
+        if ($itemName) {
+            $set[] = "`title` = '$itemName'";
+        }
+
+        if ($itemPrice > 0) {
+            $set[] = "`price` = '$itemPrice'";
+        }
+
+        if ($itemStatus !== null) {
+            $set[] = "`status` = '$itemStatus'";
+        }
+
+        if ($itemDesc) {
+            $set[] = "`about` = '$itemDesc'";
+        }
+
+        if ($itemCat) {
+            $set[] = "`id_category` = '$itemCat'";
+        }
+
+        if ($newFileName) {
+            $set[] = "`img` = '$newFileName'";
+        }
+
+        $setStr = implode(', ', $set);
+
+        $sql = "
+            UPDATE products
+            SET $setStr
+            WHERE id = $itemId
+        ";
+
+        $rs = $this->db->query($sql);
+
+        return $rs;
+    }
+
+    /**
+     * Загрузка записи о добавление фотографии товару
+     * 
+     * @param integer $itemId ID файла
+     * @param string $newFileName Наименование файла
+     * 
+     * @return 
+     */
+    public function updateProductImage($itemId, $newFileName)
+    {
+        $rs = $this->updateProducts($itemId, null, null, null, null, null, $newFileName);
+
+        return $rs;
     }
 }
   

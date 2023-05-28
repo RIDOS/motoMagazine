@@ -183,6 +183,7 @@ function loginAction()
         $userData = $userData[0];
 
         $_SESSION['user'] = $userData;
+        $_SESSION['user']['is_admin'] = $userData['role_id'];
         $_SESSION['user']['displayName'] = $userData['name'] == '0' ? $userData['email'] : $userData['name'];
 
         $resData = $_SESSION['user'];

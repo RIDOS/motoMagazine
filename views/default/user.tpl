@@ -59,7 +59,7 @@
                     <td>{$item.id}</td>
                     <td>{$item.status}</td>
                     <td>{$item.date_create}</td>
-                    <td>{$item.date_payment}</td>
+                    <td>{$item.date_payment|date_format:"%Y-%m-%d"}</td>
                     <td>{$item.comment}</td>
                 </tr>
                 <tr style="display:none" id="purchasesForOrderId_{$item.id}">

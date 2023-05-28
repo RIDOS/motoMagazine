@@ -200,8 +200,12 @@ function saveOrder()
         data: postData,
         dataType: "json",
         success: function (data) {
-            alert(data['message']);
-            window.location.replace("/?controller=user");
+            if (data['success']) {
+                alert(data['message']);
+                window.location.replace("/?controller=user");
+            } else {
+                alert(data['message']);
+            }
         }
     });
 }
