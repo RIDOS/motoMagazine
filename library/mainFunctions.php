@@ -72,3 +72,10 @@ function createSmartyRsArray($result): array|bool
 
     return $smartyRs;
 }
+
+function redirect(string $url)
+{
+    if (! $url) $url = "/";
+    header("Location: $url");
+    exit;
+}

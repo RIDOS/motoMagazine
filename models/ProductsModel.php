@@ -96,15 +96,18 @@ class ProductsModel
     {
         $strIds = implode(', ', $itemsIds);
 
-        $sql = "
-            SELECT *
-            FROM products
-            WHERE id IN ($strIds)
-        ";
+        if ($strIds) {
+            $sql = "
+                SELECT *
+                FROM products
+                WHERE id IN ($strIds)
+            ";
 
-        $result = $this->db->query($sql);
+            $result = $this->db->query($sql);
 
-        return createSmartyRsArray($result);
+            return createSmartyRsArray($result);
+        }
+        return [];
     }
 }
   

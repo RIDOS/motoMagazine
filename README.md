@@ -24,3 +24,4 @@ Nginx 1.8.0
 Smarty 4.3.0
 JQuery-3.7.0
 
+CREATE TABLE

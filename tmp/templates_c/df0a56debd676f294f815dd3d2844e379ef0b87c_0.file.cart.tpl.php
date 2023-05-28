@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-05-25 01:15:16
+/* Smarty version 4.3.0, created on 2023-05-25 12:00:48
   from '/var/www/motoMagazine/views/default/cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_646e70543006d4_34431567',
+  'unifunc' => 'content_646f07a06f14b0_66594237',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'df0a56debd676f294f815dd3d2844e379ef0b87c' => 
     array (
       0 => '/var/www/motoMagazine/views/default/cart.tpl',
-      1 => 1684959314,
+      1 => 1684998041,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_646e70543006d4_34431567 (Smarty_Internal_Template $_smarty_tpl) {
+function content_646f07a06f14b0_66594237 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="container">
     <h1 style="width:100%">Корзина</h1>
@@ -28,6 +28,7 @@ function content_646e70543006d4_34431567 (Smarty_Internal_Template $_smarty_tpl)
     <?php if (!$_smarty_tpl->tpl_vars['rsProducts']->value) {?>
         <p>В корзине пусто.</p>
     <?php } else { ?>
+        <form method="POST" action="/?controller=cart&action=order">
         <h2 style="width:100%">Данные заказа</h2>
         <table>
             <tr>
@@ -109,6 +110,8 @@ $_prefixVariable1 = ob_get_clean();
 echo $_prefixVariable1;?>
 
         </table>
+        <input type="submit" value="Оформить заказ"/>
+        </form>
     <?php }?>
 </div><?php }
 }

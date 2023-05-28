@@ -29,6 +29,12 @@ $actionName = $_GET['action'] ?? 'index';
 
 
 if (isset($smarty)) {
+  // Если в сессии есть данные об авторизации пользователя, то передаем
+  // их в шаблон
+  if (isset($_SESSION['user'])) {
+    $smarty->assign('arUser', $_SESSION['user']);
+  }
+
   $smarty->assign('cartCntItems', count($_SESSION['cart']));
   loadPage($smarty, $controllerName, $actionName);
 }

@@ -270,3 +270,70 @@ body {
 .mt-2 {
     margin-top: 20px;
 }
+
+#registerBox {
+    margin-top: 20px;
+}
+
+.menuCaption {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#registerBoxHidden {
+    /* display: none; */
+    margin-top: 10px;
+}
+
+#registerBoxHidden, #loginBox p {
+    margin: 5px 0;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 150px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="button"] {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #337ab7;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #23527c;
+}
+
+
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
