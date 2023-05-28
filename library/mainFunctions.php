@@ -52,3 +52,30 @@ function dump($value = null, bool $die = true)
 
     if ($die) die;
 }
+
+
+/**
+ * Преобразование результата работы функции выборки в ассоциативный массив
+ * 
+ * @param recordest $rs набор строк - результат работы SELECT
+ * @return array|bool
+ */
+function createSmartyRsArray($result): array|bool
+{
+    if (is_null($result)) return false;
+
+    $smartyRs = [];
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $smartyRs[] = $row;
+    }
+
+    return $smartyRs;
+}
+
+function redirect(string $url)
+{
+    if (! $url) $url = "/";
+    header("Location: $url");
+    exit;
+}
