@@ -9,13 +9,16 @@ const PathPostfix = 'Controller.php';
 
 // Шаблонизатор Smarty
 $template = 'default';
+$templateAdmin = 'admin';
 
 // Пути к файлам шаблонов (*tpl)
- define('TemplatePrefix', "../views/$template/");
+define('TemplatePrefix', "../views/$template/");
+define('TemplateAdminPrefix', "../views/$templateAdmin/");
 const TemplatePostfix = '.tpl';
 
  // Пути к файлам шаблонов в вебпространстве
 define('TemplateWebPath', "/templates/$template/");
+define('TemplateAdminWebPath', "/templates/$templateAdmin/");
 
 require('../library/smarty-4.3.0/libs/Smarty.class.php');
 $smarty = new Smarty();

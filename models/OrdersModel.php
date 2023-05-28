@@ -97,4 +97,75 @@ class OrdersModel
 
         return $smartyRs;
     }
+
+    public function getOrders()
+    {
+        $sql = "
+            SELECT o.*, u.name, u.email, u.phone, u.adress
+            FROM sales AS `o`
+            LEFT JOIN users AS `u` ON o.id_user = u.id
+            ORDER BY id DESC
+        ";
+
+        $rs = $this->db->query($sql);
+
+        $smartyRs = [];
+
+        while ($row = mysqli_fetch_assoc($rs)) {
+            $rsChildren = $this->getProductsForOrder($row['id']);
+
+            if ($rsChildren) {
+                $row['children'] = $rsChildren;
+                $smartyRs[] = $row;
+            }
+        }
+
+        return $smartyRs;
+    }
+
+    /**
+     * Получить продукты заказа
+     * 
+     * @param integer $orderId ID заказа
+     * @return array массив данных товаров
+     */
+    public function getProductsForOrder(int $orderId)
+    {
+        $sql = "
+            SELECT *
+            FROM purchase AS pe
+            LEFT JOIN products AS ps
+                ON pe.prouct_id = ps.id
+            WHERE (`sales_id` = '$orderId')
+        ";
+
+        $rs = $this->db->query($sql);
+        return createSmartyRsArray($rs);
+    }
+
+    public function updateOrderStatus(int $itemId, string $status)
+    {
+        $sql = "
+            UPDATE `sales`
+            SET status = '$status'
+            WHERE id = '$itemId'
+        ";
+
+        $rs = $this->db->query($sql);
+
+        return $rs;
+    }
+
+    public function updateOrderDatePayment(int $itemId, string $datePayment)
+    {
+        $sql = "
+            UPDATE `sales`
+            SET date_payment = '$datePayment'
+            WHERE id = '$itemId'
+        ";
+
+        $rs = $this->db->query($sql);
+
+        return $rs;
+    }
 }

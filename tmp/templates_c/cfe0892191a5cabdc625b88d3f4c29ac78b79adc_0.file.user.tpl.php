@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-05-28 14:11:10
+/* Smarty version 4.3.0, created on 2023-05-28 23:58:46
   from '/var/www/motoMagazine/views/default/user.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64731aaeea34e2_43927192',
+  'unifunc' => 'content_6473a466a5dbd5_46966708',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cfe0892191a5cabdc625b88d3f4c29ac78b79adc' => 
     array (
       0 => '/var/www/motoMagazine/views/default/user.tpl',
-      1 => 1685265068,
+      1 => 1685300325,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64731aaeea34e2_43927192 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6473a466a5dbd5_46966708 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/motoMagazine/library/smarty-4.3.0/libs/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
+
 <div class="container">
     <h3 style="width:100%">Ваши данные</h3>
     <table border="0" style="width:100%">
@@ -98,7 +100,7 @@ $_smarty_tpl->tpl_vars['__smarty_foreach_orders']->value['iteration']++;
 </td>
                     <td><?php echo $_smarty_tpl->tpl_vars['item']->value['date_create'];?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['date_payment'];?>
+                    <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['item']->value['date_payment'],"%Y-%m-%d");?>
 </td>
                     <td><?php echo $_smarty_tpl->tpl_vars['item']->value['comment'];?>
 </td>
