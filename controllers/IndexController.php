@@ -27,8 +27,17 @@ function testAction(): void
  */
 function indexAction($smarty): void
 {
+    $paginator = [];
+    $paginator['perPage'] = 6;
+    $paginator['currentPage'] = $_GET['page'] ?? 1;
+    $paginator['offset'] = ($paginator['currentPage'] * $paginator['perPage'] - $paginator['perPage']);
+    $paginator['link'] = '/?controller=index&page=';
+
+    list($rsProducts, $allCnt) = (new ProductsModel())->getLastProducts($paginator['offset'], $paginator['perPage']);
+
+    $paginator['pageCnt'] = ceil($allCnt / $paginator['perPage']);
+
     $rsCategories = (new CategoriesModel())->getAllMainCatsWithChildren();
-    $rsProducts = (new ProductsModel())->getLastProducts(6);
     // dump($rsProducts);
 
     $smarty->assign([
@@ -36,6 +45,7 @@ function indexAction($smarty): void
         'templateWebPath' => TemplateWebPath,
         'categories' => $rsCategories,
         'products' => $rsProducts,
+        'paginator' => $paginator,
     ]);
 
     loadTemplate($smarty, 'header');

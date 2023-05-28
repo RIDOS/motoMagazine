@@ -26,11 +26,18 @@ class ProductsModel
     /**
      * Получаем последние добавленные товары
      *
+     * @param integer $offset Количество товаров
      * @param integer $limit Лимит товаров
      * @return array|bool Массив товаров
      */
-    public function getLastProducts(int $limit = 0): array|bool
+    public function getLastProducts(int $offset = 1,int $limit = 0): array|bool
     {
+        $sql = "
+            SELECT count(id) as cnt FROM products
+        ";
+        $rs = $this->db->query($sql);
+        $cnt = createSmartyRsArray($rs);
+
         $sql = "
             SELECT *
             FROM products
@@ -38,14 +45,12 @@ class ProductsModel
             ORDER BY id DESC
         ";
 
-        if ($limit != 0) {
-            $sql .= " LIMIT $limit";
-        }
-
+        $sql .= " LIMIT $offset, $limit";
 
         $result = $this->db->query($sql);
+        $rows = createSmartyRsArray($result);
 
-        return createSmartyRsArray($result);
+        return [$rows, $cnt[0]['cnt']];
     }
 
     /**

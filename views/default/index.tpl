@@ -11,4 +11,17 @@
         <a class="card-submit" href="/?controller=product&id={$item.id}">ПОДРОБНЕЕ</a>
     </div>
     {/foreach}
+    <div class="container">
+        <div class="paginator">
+            {if $paginator.currentPage != 1}
+                <span class="p_prev"><a style="text-decoration:none" href="{$paginator.link}{$paginator.currentPage - 1}"><-</a></span>
+            {/if}
+
+            <strong><span>{$paginator.currentPage}</span></strong>
+
+            {if $paginator.currentPage  < $paginator.pageCnt}
+                <span class="p_prev"><a style="text-decoration:none" href="{$paginator.link}{$paginator.currentPage + 1}">-></a></span>
+            {/if}
+        </div>
+    </div>
 </div>

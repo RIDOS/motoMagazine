@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-05-28 22:18:39
+/* Smarty version 4.3.0, created on 2023-05-29 02:04:02
   from '/var/www/motoMagazine/views/default/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64738cefbb22e9_63737649',
+  'unifunc' => 'content_6473c1c27679d8_71107160',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '17894248748abd8885d903d0a5691f182a70be6b' => 
     array (
       0 => '/var/www/motoMagazine/views/default/index.tpl',
-      1 => 1685294318,
+      1 => 1685307841,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64738cefbb22e9_63737649 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6473c1c27679d8_71107160 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="container">
     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['products']->value, 'item', false, NULL, 'product', array (
@@ -45,5 +45,23 @@ $_smarty_tpl->tpl_vars['item']->do_else = false;
     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+    <div class="container">
+        <div class="paginator">
+            <?php if ($_smarty_tpl->tpl_vars['paginator']->value['currentPage'] != 1) {?>
+                <span class="p_prev"><a style="text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['paginator']->value['link'];
+echo $_smarty_tpl->tpl_vars['paginator']->value['currentPage']-1;?>
+"><-</a></span>
+            <?php }?>
+
+            <strong><span><?php echo $_smarty_tpl->tpl_vars['paginator']->value['currentPage'];?>
+</span></strong>
+
+            <?php if ($_smarty_tpl->tpl_vars['paginator']->value['currentPage'] < $_smarty_tpl->tpl_vars['paginator']->value['pageCnt']) {?>
+                <span class="p_prev"><a style="text-decoration:none" href="<?php echo $_smarty_tpl->tpl_vars['paginator']->value['link'];
+echo $_smarty_tpl->tpl_vars['paginator']->value['currentPage']+1;?>
+">-></a></span>
+            <?php }?>
+        </div>
+    </div>
 </div><?php }
 }
